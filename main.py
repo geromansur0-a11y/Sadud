@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter as tk
 from database import create_tables
 from auth import login
 from master_barang import master_barang
@@ -7,18 +7,25 @@ from penjualan import penjualan
 from laporan import laporan
 
 def dashboard(role):
-    w=Tk();w.title("SADUD")
-    Label(w,text="SADUD",font=("Arial",18)).pack()
+    win = tk.Tk()
+    win.title("SADUD - Sistem Akuntansi Digital Usaha Dagang")
+    win.geometry("400x350")
 
-    Button(w,text="Barang",command=master_barang).pack()
-    Button(w,text="Pembelian",command=pembelian).pack()
-    Button(w,text="Penjualan",command=penjualan).pack()
-    Button(w,text="Laporan",command=laporan).pack()
+    tk.Label(
+        win,
+        text="SADUD",
+        font=("Arial", 18, "bold")
+    ).pack(pady=15)
 
-    w.mainloop()
+    tk.Button(win, text="Data Barang", width=25, command=master_barang).pack(pady=5)
+    tk.Button(win, text="Pembelian", width=25, command=pembelian).pack(pady=5)
+    tk.Button(win, text="Penjualan", width=25, command=penjualan).pack(pady=5)
+    tk.Button(win, text="Laporan", width=25, command=laporan).pack(pady=5)
 
-if __name__=="__main__":
+    win.mainloop()
+
+if __name__ == "__main__":
     create_tables()
-    r=Tk()
-    login(r,dashboard)
-    r.mainloop()
+    root = tk.Tk()
+    login(root, dashboard)
+    root.mainloop()
