@@ -1,4 +1,4 @@
-from tkinter import 
+from tkinter import *
 from database import create_tables
 from auth import login
 from master_barang import master_barang
