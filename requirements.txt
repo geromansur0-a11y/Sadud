@@ -1,0 +1,5 @@
+flask
+reportlab
+matplotlib
+pyinstaller
+pyfingerprint
